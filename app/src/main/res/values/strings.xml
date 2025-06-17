@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">متتبع نقاط الدومينو</string>
+    
+    <!-- Game Type -->
+    <string name="game_type">نوع اللعبة</string>
+    <string name="game_type_masri">مصري</string>
+    <string name="game_type_american">أمريكاني</string>
+    <string name="game_type_teams">فرق (2 ضد 2)</string>
+    
+    <!-- Player Management -->
+    <string name="add_player">إضافة لاعب</string>
+    <string name="player_name_hint">اسم اللاعب</string>
+    <string name="add">إضافة</string>
+    <string name="players">اللاعبون</string>
+    
+    <!-- Game Controls -->
+    <string name="next_round">الجولة التالية</string>
+    <string name="reset_game">إعادة تعيين اللعبة</string>
+    <string name="round_format">الجولة %d</string>
+    
+    <!-- Dialogs -->
+    <string name="add_score">إضافة نقاط</string>
+    <string name="enter_score">أدخل النقاط</string>
+    <string name="cancel">إلغاء</string>
+    <string name="reset_confirmation_title">إعادة تعيين اللعبة</string>
+    <string name="reset_confirmation_message">هل أنت متأكد من إعادة تعيين اللعبة؟ سيتم مسح جميع النقاط.</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="next_round_confirmation_title">الجولة التالية</string>
+    <string name="next_round_confirmation_message">هل تريد الانتقال إلى الجولة التالية؟ سيتم حفظ النقاط الحالية وبدء جولة جديدة.</string>
+    <string name="yes">نعم</string>
+    
+    <!-- Game Type Change Confirmation -->
+    <string name="change_game_type_title">تغيير نوع اللعبة</string>
+    <string name="change_game_type_message">تغيير نوع اللعبة إلى %s سيؤدي إلى إعادة تعيين اللعبة الحالية. هل أنت متأكد من المتابعة؟</string>
+    <string name="yes_reset">نعم، إعادة تعيين</string>
+    
+    <!-- Player Limit Messages -->
+    <string name="player_limit_masri">الحد الأقصى 4 لاعبين</string>
+    <string name="player_limit_american">الحد الأقصى 4 لاعبين</string>
+    <string name="player_limit_teams">الحد الأقصى فريقين (4 لاعبين إجمالي)</string>
+    
+    <!-- Player Item -->
+    <string name="add_score_button">إضافة نقاط</string>
+</resources>
