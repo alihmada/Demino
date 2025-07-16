@@ -70,7 +70,7 @@ This project does not use any external APIs. All score tracking and logic are ha
 
 ---
 
-## 👤 Author(s)
+## 👤 Author
 
 - Ali Hmada
 
