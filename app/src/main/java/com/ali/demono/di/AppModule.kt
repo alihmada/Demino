@@ -4,7 +4,11 @@ import android.content.Context
 import com.ali.demono.features.game.data.database.GameDatabase
 import com.ali.demono.features.game.data.repository.RoomGameRepository
 import com.ali.demono.features.game.domain.repository.GameRepository
-import com.ali.demono.features.game.domain.usecase.*
+import com.ali.demono.features.game.domain.usecase.AddPlayerUseCase
+import com.ali.demono.features.game.domain.usecase.NextRoundUseCase
+import com.ali.demono.features.game.domain.usecase.ResetGameUseCase
+import com.ali.demono.features.game.domain.usecase.SetGameTypeUseCase
+import com.ali.demono.features.game.domain.usecase.UpdateScoreUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

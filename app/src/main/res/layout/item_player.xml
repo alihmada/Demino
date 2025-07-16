@@ -1,95 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playerCard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    android:layoutDirection="rtl"
-    android:padding="16dp">
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="12dp">
 
-    <!-- Player Name (Right side - Start in RTL) -->
+    <!-- Leading Icon -->
+    <ImageView
+        android:id="@+id/playerIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/player_icon_desc"
+        android:src="@drawable/ic_person"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorOnSurfaceVariant" />
+
+    <!-- Player Name -->
     <TextView
         android:id="@+id/playerNameText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_primary"
-        android:textDirection="rtl"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/playerScoreText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Score Display (Center) -->
-    <TextView
-        android:id="@+id/playerScoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/score_badge"
-        android:gravity="center"
-        android:minWidth="60dp"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="6dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:gravity="start"
+        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/playerNameText"
-        app:layout_constraintStart_toEndOf="@id/scoreControlsLayout"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/playerIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Ali Hassan" />
 
-    <!-- Score Controls (Left side - End in RTL) -->
     <LinearLayout
-        android:id="@+id/scoreControlsLayout"
+        android:id="@+id/scoreControlsLayoutA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/playerScoreText"
-        app:layout_constraintStart_toEndOf="@id/addScoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Minus Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/minusButton"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_remove"
-            app:iconSize="24dp"
-            app:iconTint="@color/error_color" />
+            android:contentDescription="@string/decrease_score_desc"
+            app:icon="@drawable/ic_remove" />
 
-        <!-- Plus Button -->
+        <TextView
+            android:id="@+id/scoreControlsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:minWidth="40dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/colorPrimary"
+            tools:text="150" />
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/plusButton"
-            style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:icon="@drawable/ic_add"
-            app:iconSize="24dp"
-            app:iconTint="@color/primary_color" />
+            android:contentDescription="@string/increase_score_desc"
+            app:icon="@drawable/ic_add" />
 
     </LinearLayout>
 
-    <!-- Add Score Button (Left side - End in RTL) -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/addScoreButton"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+    <LinearLayout
+        android:id="@+id/scoreControlsLayoutMT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_score_button"
-        android:textAllCaps="false"
-        android:visibility="gone"
-        app:icon="@drawable/ic_score"
-        app:iconGravity="textStart"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/scoreControlsLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout> 
+        <TextView
+            android:id="@+id/playerScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/colorPrimary"
+            tools:text="150" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addScoreButton"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

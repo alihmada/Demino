@@ -5,211 +5,133 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
     tools:context=".features.game.presentation.ui.GameActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-
-            <!-- ✅ TextView as title -->
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical|end"
-                android:text="@string/app_name"
-                android:layout_marginEnd="20dp"
-                android:textSize="20sp"
-                android:layout_gravity="end" />
-
-        </com.google.android.material.appbar.MaterialToolbar>
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/game_title" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="20dp"
+        android:paddingBottom="80dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <!-- Game Type Selector -->
             <TextView
                 android:id="@+id/gameTypeTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
                 android:text="@string/game_type"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
-            <com.google.android.material.chip.ChipGroup
+            <com.google.android.material.button.MaterialButtonToggleGroup
                 android:id="@+id/gameTypeChipGroup"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gameTypeTitle"
+                android:layout_marginTop="8dp"
+                app:checkedButton="@+id/chipMasri"
+                app:selectionRequired="true"
                 app:singleSelection="true">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipTeams"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/game_type_teams" />
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipAmerican"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/game_type_american" />
-
-                <com.google.android.material.chip.Chip
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/chipMasri"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:checked="true"
+                    android:layout_weight="1"
                     android:text="@string/game_type_masri" />
 
-            </com.google.android.material.chip.ChipGroup>
-
-            <!-- Add Player Section -->
-            <TextView
-                android:id="@+id/addPlayerTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/add_player"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/gameTypeChipGroup" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/playerNameInputLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
-                app:boxCornerRadiusBottomEnd="16dp"
-                app:boxCornerRadiusBottomStart="16dp"
-                app:boxCornerRadiusTopEnd="16dp"
-                app:boxCornerRadiusTopStart="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/addPlayerButton"
-                app:layout_constraintTop_toBottomOf="@id/addPlayerTitle">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/playerNameInput"
-                    android:layout_width="match_parent"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipAmerican"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/player_name_hint"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
+                    android:layout_weight="1"
+                    android:text="@string/game_type_american" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/chipTeams"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/game_type_teams" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/addPlayerButton"
-                android:layout_width="wrap_content"
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <!-- Players List Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/add"
-                android:textAllCaps="false"
-                app:icon="@drawable/ic_add"
-                app:layout_constraintBottom_toBottomOf="@id/playerNameInputLayout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/playerNameInputLayout" />
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <!-- Players List Header -->
-            <TextView
-                android:id="@+id/playersTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="@string/players"
-                android:textColor="@color/text_primary"
-                android:textDirection="rtl"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/roundInfoText"
-                app:layout_constraintTop_toBottomOf="@id/playerNameInputLayout" />
+                <TextView
+                    android:id="@+id/playersTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/players"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
-            <TextView
-                android:id="@+id/roundInfoText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/round_badge"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
-                android:text="@string/round_format"
-                android:textColor="@color/text_secondary"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/playersTitle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/playersTitle" />
+                <TextView
+                    android:id="@+id/roundInfoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_badge"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
+                    tools:text="Round: 1 / 7" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/playersRecyclerView"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:nestedScrollingEnabled="false"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/playersTitle" />
+                android:layout_marginTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_player" />
 
-            <!-- Game Controls -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/nextRoundButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="4dp"
-                android:text="@string/next_round"
-                android:textAllCaps="false"
-                app:cornerRadius="16dp"
-                app:layout_constraintEnd_toStartOf="@id/resetGameButton"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/playersRecyclerView" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/resetGameButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="56dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/reset_game"
-                android:textAllCaps="false"
-                android:textColor="@color/error_color"
-                app:cornerRadius="16dp"
-                app:layout_constraintBottom_toBottomOf="@id/nextRoundButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/nextRoundButton"
-                app:layout_constraintTop_toTopOf="@id/nextRoundButton"
-                app:strokeColor="@color/error_color" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout> 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="end"
+        app:menu="@menu/menu_game_bottom_bar" />
+
+    <!-- Add Player FAB -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/addPlayerEfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_player"
+        app:icon="@drawable/person_add"
+        app:layout_anchor="@id/bottomAppBar" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

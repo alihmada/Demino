@@ -2,43 +2,33 @@ package com.ali.demono.features.game.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.animation.AnimationUtils
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.ali.demono.R
+import com.ali.demono.core.extensions.enableEdgeToEdgeDisplay
+import com.ali.demono.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
-
-        setupEdgeToEdge()
-        setupAnimations()
-        navigateToGameActivity()
+        setupBinding()
+        enableEdgeToEdgeDisplay(binding.root)
+        navigateToGame()
     }
 
-    private fun setupEdgeToEdge() {
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+    private fun setupBinding() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
-    private fun setupAnimations() {
-        val fadeIn = AnimationUtils.loadAnimation(this, android.R.anim.fade_in)
-        findViewById<ImageView>(R.id.main).startAnimation(fadeIn)
-    }
 
-    private fun navigateToGameActivity() {
+    private fun navigateToGame() {
         lifecycleScope.launch {
             delay(1000)
             startActivity(Intent(this@MainActivity, GameActivity::class.java))

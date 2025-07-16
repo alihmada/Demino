@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_next_round"
+        android:icon="@drawable/autoplay"
+        android:title="@string/next_round"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_reset_game"
+        android:icon="@drawable/autostop"
+        android:title="@string/reset_game"
+        app:showAsAction="ifRoom" />
+</menu> 
