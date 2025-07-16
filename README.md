@@ -26,10 +26,10 @@ Demono is an Android Domino Score Tracker designed for casual and competitive pl
 
 ## 📱 Screenshots
 - **Game Mode Selection Screen**  
-  ![Game Mode Selection](screenshots/game_mode_selection.png)
+  ![Game Mode Selection](screenshots/game_mode_selection.jpg)
 
 - **Score Entry Screen**  
-  ![Score Entry](screenshots/score_entry.png)
+  ![Score Entry](screenshots/score_entry.jpg)
 
 ---
 
