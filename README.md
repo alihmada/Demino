@@ -73,11 +73,3 @@ This project does not use any external APIs. All score tracking and logic are ha
 ## 👤 Author
 
 - Ali Hmada
-
----
-
-## 🙏 Acknowledgments
-
-Special thanks to the open-source community and the creators of the libraries used in this project.
-
---- 
